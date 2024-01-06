@@ -3,10 +3,8 @@ Config = {
     Locale = GetConvar('esx:locale', 'en'),
     Notification = 'ESX', -- Type: ESX, OXLIB, OKOK
 
-    Updater = true,
-
     EnableLocations = true,
-    UseTargetSystem = false, -- Type: true (use ox_target), false (use markers)
+    UseTargetSystem = true, -- Type: true (use ox_target), false (use markers)
 
     Command = {
         Enable = true,
@@ -48,7 +46,7 @@ Config = {
 
     DiscordLogs = { -- Set Webhook URL in server/main.lua at line 1!
 
-        Enable = true,
+        Enable = false,
      
         WebhookName = "Scratch Gun S.N",     
         Colour = 2600155,
