@@ -5,7 +5,7 @@ game 'gta5'
 -- {{ Resource Information }} --
 author 'Respect Development'
 description 'Scatch gun serial number'
-version '1.0.1'
+version '1.0.0'
 
 -- {{ Manifest }} --
 lua54 'yes'
@@ -13,14 +13,17 @@ lua54 'yes'
 shared_scripts {
     '@ox_lib/init.lua',
     'shared/Config.lua',
-    'shared/Strings.lua',
 }
 
 client_scripts {
+    '@es_extended/locale.lua',
+    'locales/*.lua',
     'client/main.lua',
 }
 
 server_scripts {
+    '@es_extended/locale.lua',
+    'locales/*.lua',
     'server/main.lua',
-    'shared/DiscordLogs.lua',
+    'server/updater.lua',
 }
