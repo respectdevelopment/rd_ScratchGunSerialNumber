@@ -4,7 +4,7 @@
 
 ###
 
-<h3 align="center">Easy script to scratch your gun serial number!<br>Requirements: ESX, ox_lib, ox_inventory</h3>
+<p align="center">Easy script to scratch your gun serial number!<br>Requirements: ESX, ox_lib, ox_inventory</p>
 
 ###
 
@@ -14,7 +14,7 @@
 
 ###
 
-<h3 align="center">You can use by command/location (via ox_target or markers)<br>You can set multiplace location<br>You can set custom animation<br>You can set own notification system<br>You can translate to your language<br>You can set need item to scratch gun serial number<br>You can set delete needed item after use<br>Discord Logs</h3>
+<p align="center">You can use by command/location (via ox_target or markers)<br>You can set multiplace location<br>You can set custom animation<br>You can set own notification system<br>You can translate to your language<br>You can set need item to scratch gun serial number<br>You can set delete needed item after use<br>Discord Logs</p>
 
 ###
 
@@ -24,7 +24,7 @@
 
 ###
 
-<h3 align="center">https://www.youtube.com/watch?v=IZR5b3IRi9M</h3>
+<p align="center">https://www.youtube.com/watch?v=IZR5b3IRi9M</p>
 
 ###
 
@@ -34,6 +34,6 @@
 
 ###
 
-<h3 align="center">https://discord.gg/4HyX4KUdmB</h3>
+<p align="center">https://discord.gg/4HyX4KUdmB</p>
 
 ###
