@@ -1,11 +1,39 @@
-# Scratch Gun Serial Number
-Easy script to scratch your gun serial number!
+<br clear="both">
 
-Requirements: ESX, ox_lib, ox_inventory
-Additional: ox_target
+<h1 align="center">Scratch Gun Serial Number</h1>
 
-# Showcase
-https://www.youtube.com/watch?v=IZR5b3IRi9M
+###
 
-# Support
-https://discord.gg/4HyX4KUdmB
+<h3 align="center">Easy script to scratch your gun serial number!<br>Requirements: ESX, ox_lib, ox_inventory</h3>
+
+###
+
+<br clear="both">
+
+<h1 align="center">Features</h1>
+
+###
+
+<h3 align="center">You can use by command/location (via ox_target or markers)<br>You can set multiplace location<br>You can set custom animation<br>You can set own notification system<br>You can translate to your language<br>You can set need item to scratch gun serial number<br>You can set delete needed item after use<br>Discord Logs</h3>
+
+###
+
+<br clear="both">
+
+<h1 align="center">Showcase</h1>
+
+###
+
+<h3 align="center">https://www.youtube.com/watch?v=IZR5b3IRi9M</h3>
+
+###
+
+<br clear="both">
+
+<h1 align="center">Support</h1>
+
+###
+
+<h3 align="center">https://discord.gg/4HyX4KUdmB</h3>
+
+###
