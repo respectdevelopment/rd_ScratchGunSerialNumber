@@ -44,8 +44,8 @@ local spawnedObjects = {}
 RegisterNetEvent('rd:ScratchGunSerialNumber:load')
 AddEventHandler('rd:ScratchGunSerialNumber:load', function()
     if Config.EnableLocations then
-        for name, craftingData in pairs(Config.Locations) do 
-            for _, coords in pairs(craftingData.coords) do
+        for name, Data in pairs(Config.Locations) do 
+            for _, coords in pairs(Data.coords) do
                 if Config.UseTargetSystem then
 
                     print(coords.x, coords.y, coords.z)
