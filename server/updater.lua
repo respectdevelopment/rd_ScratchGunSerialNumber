@@ -10,9 +10,8 @@ CheckVersion = function(err, response, headers)
         print("^5Scratch Gun Serial Number\n\n^0Latest version is: ^2"..response.."\n^7Your version: "..Color..""..curVersion.."^7\n\nUpdate from: ^5https://github.com"..updatePath.."")
         print("^1----------------------------------------------------------------------------------^7")
     else
-        print("\n^2----------------------------------------------------------------------------------^7")
-        print("^0Scratch Gun Serial Number ^0have ^2latest ^0version!")
-        print("^2----------------------------------------------------------------------------------^7")
+        print("^0[✔] Scratch Gun Serial Number have latest version!")
+
 
 
 
