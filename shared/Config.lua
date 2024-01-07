@@ -3,6 +3,8 @@ Config = {
     Locale = GetConvar('esx:locale', 'en'),
     Notification = 'ESX', -- Type: ESX, OXLIB, OKOK
 
+    UpdateCheck = true,
+
     EnableLocations = true,
     UseTargetSystem = true, -- Type: true (use ox_target), false (use markers)
 

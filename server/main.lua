@@ -39,13 +39,13 @@ AddEventHandler('rd:ScratchGunSerialNumber:Scratch', function()
                     if Config.DiscordLogs.Enable then
                         
                         local steamid = false
-                        local discoConfig = false
+                        local discord = false
             
                         for k,v in pairs(GetPlayerIdentifiers(source))do            
                             if string.sub(v, 1, string.len("steam:")) == "steam:" then
                                 steamid = v
-                            elseif string.sub(v, 1, string.len("discoConfig:")) == "discoConfig:" then
-                                discoConfig = v
+                            elseif string.sub(v, 1, string.len("discord:")) == "discord:" then
+                                discord = v
                             end     
                         end
             
@@ -58,7 +58,7 @@ AddEventHandler('rd:ScratchGunSerialNumber:Scratch', function()
                             ["{NAME}"] = playerName,
                             ["{SERIAL-NUMBER}"] = SerialNumber,
                             ["{STEAM}"] = steamid,
-                            ["{DISCOConfig}"] = discoConfig,
+                            ["{DISCORD}"] = discord,
                         }
             
                         local pattern = "{(.-)}"
@@ -95,13 +95,13 @@ AddEventHandler('rd:ScratchGunSerialNumber:Scratch', function()
             if Config.DiscordLogs.Enable then
                         
                 local steamid = false
-                local discoConfig = false
+                local discord = false
     
                 for k,v in pairs(GetPlayerIdentifiers(source))do            
                     if string.sub(v, 1, string.len("steam:")) == "steam:" then
                         steamid = v
-                    elseif string.sub(v, 1, string.len("discoConfig:")) == "discoConfig:" then
-                        discoConfig = v
+                    elseif string.sub(v, 1, string.len("discord:")) == "discord:" then
+                        discord = v
                     end     
                 end
     
@@ -114,7 +114,7 @@ AddEventHandler('rd:ScratchGunSerialNumber:Scratch', function()
                     ["{NAME}"] = playerName,
                     ["{SERIAL-NUMBER}"] = SerialNumber,
                     ["{STEAM}"] = steamid,
-                    ["{DISCOConfig}"] = discoConfig,
+                    ["{DISCORD}"] = discord,
                 }
     
                 local pattern = "{(.-)}"
@@ -122,7 +122,7 @@ AddEventHandler('rd:ScratchGunSerialNumber:Scratch', function()
                     return replacements['{' .. key .. '}'] or key
                 end)
         
-                local DiscoConfigLog = {
+                local DiscordLog = {
                     {
                         ["color"] = Config.DiscordLogs.Colour,
                         ["title"] = Config.DiscordLogs.Title,
@@ -133,7 +133,7 @@ AddEventHandler('rd:ScratchGunSerialNumber:Scratch', function()
                         },
                     }
                 }
-                PerformHttpRequest(Webhook, function(err, text, headers) end, 'POST', json.encode({ username = Config.DiscordLogs.WebhookName, embeds = DiscoConfigLog, avatar_url = "https://media.discordapp.net/attachments/627098670021607444/1189648805767946280/rsz_1rsz_screenshot_3.png?ex=659eedc9&is=658c78c9&hm=46b027b12319ca1b93531bc0ecd8429bc67c3a0cb1c2065671b5ef694901cf34&=&format=webp&quality=lossless" }), { ['Content-Type'] = 'application/json' })
+                PerformHttpRequest(Webhook, function(err, text, headers) end, 'POST', json.encode({ username = Config.DiscordLogs.WebhookName, embeds = DiscordLog, avatar_url = "https://media.discordapp.net/attachments/627098670021607444/1189648805767946280/rsz_1rsz_screenshot_3.png?ex=659eedc9&is=658c78c9&hm=46b027b12319ca1b93531bc0ecd8429bc67c3a0cb1c2065671b5ef694901cf34&=&format=webp&quality=lossless" }), { ['Content-Type'] = 'application/json' })
             end
         end
 
