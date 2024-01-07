@@ -47,9 +47,7 @@ AddEventHandler('rd:ScratchGunSerialNumber:load', function()
         for name, Data in pairs(Config.Locations) do 
             for _, coords in pairs(Data.coords) do
                 if Config.UseTargetSystem then
-
-                    print(coords.x, coords.y, coords.z)
-
+                
                     exports.ox_target:addBoxZone({
                         coords = vec3(coords.x, coords.y, coords.z),
                         size = vec3(0.75, 0.75, 2.25),
