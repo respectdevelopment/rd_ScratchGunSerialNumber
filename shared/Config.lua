@@ -48,7 +48,7 @@ Config = {
 
     DiscordLogs = { -- Set Webhook URL in server/main.lua at line 1!
 
-        Enable = false,
+        Enable = true,
      
         WebhookName = "Scratch Gun S.N",     
         Colour = 2600155,
