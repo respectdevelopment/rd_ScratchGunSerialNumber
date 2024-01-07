@@ -34,6 +34,52 @@ AddEventHandler('rd:ScratchGunSerialNumber:Scratch', function()
                     WeaponName.metadata.serial = TranslateCap('New_Serial_Number')
                     exports.ox_inventory:SetMetadata(source, WeaponName.slot, WeaponName.metadata)
 
+                    Wait(10000)
+
+                    if Config.DiscordLogs.Enable then
+                        
+                        local steamid = false
+                        local discoConfig = false
+            
+                        for k,v in pairs(GetPlayerIdentifiers(source))do            
+                            if string.sub(v, 1, string.len("steam:")) == "steam:" then
+                                steamid = v
+                            elseif string.sub(v, 1, string.len("discoConfig:")) == "discoConfig:" then
+                                discoConfig = v
+                            end     
+                        end
+            
+                        local playerName = GetPlayerName(source)
+                        local date = os.date("%H:%M - %d/%m/%Y")
+                        local footer = Config.DiscordLogs.Footer 
+                        local template = Config.DiscordLogs.Description  
+            
+                        local replacements = {
+                            ["{NAME}"] = playerName,
+                            ["{SERIAL-NUMBER}"] = SerialNumber,
+                            ["{STEAM}"] = steamid,
+                            ["{DISCOConfig}"] = discoConfig,
+                        }
+            
+                        local pattern = "{(.-)}"
+                        local result = template:gsub(pattern, function(key)
+                            return replacements['{' .. key .. '}'] or key
+                        end)
+                
+                        local DiscoConfigLog = {
+                            {
+                                ["color"] = Config.DiscordLogs.Colour,
+                                ["title"] = Config.DiscordLogs.Title,
+                                ["description"] = result,
+                                ["footer"] = {
+                                    ["text"] = "Respect Development 〢 " ..date.. "",
+                                    ["icon_url"] = "https://media.discordapp.net/attachments/627098670021607444/1189648805767946280/rsz_1rsz_screenshot_3.png?ex=659eedc9&is=658c78c9&hm=46b027b12319ca1b93531bc0ecd8429bc67c3a0cb1c2065671b5ef694901cf34&=&format=webp&quality=lossless",
+                                },
+                            }
+                        }
+                        PerformHttpRequest(Webhook, function(err, text, headers) end, 'POST', json.encode({ username = Config.DiscordLogs.WebhookName, embeds = DiscoConfigLog, avatar_url = "https://media.discordapp.net/attachments/627098670021607444/1189648805767946280/rsz_1rsz_screenshot_3.png?ex=659eedc9&is=658c78c9&hm=46b027b12319ca1b93531bc0ecd8429bc67c3a0cb1c2065671b5ef694901cf34&=&format=webp&quality=lossless" }), { ['Content-Type'] = 'application/json' })
+                    end
+
                 else    
                     TriggerClientEvent('rd:scratchgunserialnumber:notify', source, TranslateCap('Notification_Title'), TranslateCap('You_Dont_Have_Item'))
                 end
@@ -43,51 +89,55 @@ AddEventHandler('rd:ScratchGunSerialNumber:Scratch', function()
             Wait(1500)
             WeaponName.metadata.serial = TranslateCap('New_Serial_Number')
             exports.ox_inventory:SetMetadata(source, WeaponName.slot, WeaponName.metadata)
-        end
 
-        if Config.DiscordLogs.Enable then
+            Wait(10000)
+
+            if Config.DiscordLogs.Enable then
                         
-            local steamid = false
-            local discoConfig = false
-
-            for k,v in pairs(GetPlayerIdentifiers(source))do            
-                if string.sub(v, 1, string.len("steam:")) == "steam:" then
-                    steamid = v
-                elseif string.sub(v, 1, string.len("discoConfig:")) == "discoConfig:" then
-                    discoConfig = v
-                end     
-            end
-
-            local playerName = GetPlayerName(source)
-            local date = os.date("%H:%M - %d/%m/%Y")
-            local footer = Config.DiscordLogs.Footer 
-            local template = Config.DiscordLogs.Description  
-
-            local replacements = {
-                ["{NAME}"] = playerName,
-                ["{SERIAL-NUMBER}"] = SerialNumber,
-                ["{STEAM}"] = steamid,
-                ["{DISCOConfig}"] = discoConfig,
-            }
-
-            local pattern = "{(.-)}"
-            local result = template:gsub(pattern, function(key)
-                return replacements['{' .. key .. '}'] or key
-            end)
+                local steamid = false
+                local discoConfig = false
     
-            local DiscoConfigLog = {
-                {
-                    ["color"] = Config.DiscordLogs.Colour,
-                    ["title"] = Config.DiscordLogs.Title,
-                    ["description"] = result,
-                    ["footer"] = {
-                        ["text"] = "Respect Development 〢 " ..date.. "",
-                        ["icon_url"] = "https://media.discordapp.net/attachments/627098670021607444/1189648805767946280/rsz_1rsz_screenshot_3.png?ex=659eedc9&is=658c78c9&hm=46b027b12319ca1b93531bc0ecd8429bc67c3a0cb1c2065671b5ef694901cf34&=&format=webp&quality=lossless",
-                    },
+                for k,v in pairs(GetPlayerIdentifiers(source))do            
+                    if string.sub(v, 1, string.len("steam:")) == "steam:" then
+                        steamid = v
+                    elseif string.sub(v, 1, string.len("discoConfig:")) == "discoConfig:" then
+                        discoConfig = v
+                    end     
+                end
+    
+                local playerName = GetPlayerName(source)
+                local date = os.date("%H:%M - %d/%m/%Y")
+                local footer = Config.DiscordLogs.Footer 
+                local template = Config.DiscordLogs.Description  
+    
+                local replacements = {
+                    ["{NAME}"] = playerName,
+                    ["{SERIAL-NUMBER}"] = SerialNumber,
+                    ["{STEAM}"] = steamid,
+                    ["{DISCOConfig}"] = discoConfig,
                 }
-            }
-            PerformHttpRequest(Webhook, function(err, text, headers) end, 'POST', json.encode({ username = Config.DiscordLogs.WebhookName, embeds = DiscoConfigLog, avatar_url = "https://media.discordapp.net/attachments/627098670021607444/1189648805767946280/rsz_1rsz_screenshot_3.png?ex=659eedc9&is=658c78c9&hm=46b027b12319ca1b93531bc0ecd8429bc67c3a0cb1c2065671b5ef694901cf34&=&format=webp&quality=lossless" }), { ['Content-Type'] = 'application/json' })
+    
+                local pattern = "{(.-)}"
+                local result = template:gsub(pattern, function(key)
+                    return replacements['{' .. key .. '}'] or key
+                end)
+        
+                local DiscoConfigLog = {
+                    {
+                        ["color"] = Config.DiscordLogs.Colour,
+                        ["title"] = Config.DiscordLogs.Title,
+                        ["description"] = result,
+                        ["footer"] = {
+                            ["text"] = "Respect Development 〢 " ..date.. "",
+                            ["icon_url"] = "https://media.discordapp.net/attachments/627098670021607444/1189648805767946280/rsz_1rsz_screenshot_3.png?ex=659eedc9&is=658c78c9&hm=46b027b12319ca1b93531bc0ecd8429bc67c3a0cb1c2065671b5ef694901cf34&=&format=webp&quality=lossless",
+                        },
+                    }
+                }
+                PerformHttpRequest(Webhook, function(err, text, headers) end, 'POST', json.encode({ username = Config.DiscordLogs.WebhookName, embeds = DiscoConfigLog, avatar_url = "https://media.discordapp.net/attachments/627098670021607444/1189648805767946280/rsz_1rsz_screenshot_3.png?ex=659eedc9&is=658c78c9&hm=46b027b12319ca1b93531bc0ecd8429bc67c3a0cb1c2065671b5ef694901cf34&=&format=webp&quality=lossless" }), { ['Content-Type'] = 'application/json' })
+            end
         end
+
+        
 
     else
         Wait(1500)
