@@ -5,7 +5,7 @@ game 'gta5'
 -- {{ Resource Information }} --
 author 'Respect Development'
 description 'Scatch gun serial number'
-version '1.0.0'
+version '1.3'
 
 -- {{ Manifest }} --
 lua54 'yes'
