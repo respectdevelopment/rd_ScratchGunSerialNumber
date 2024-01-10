@@ -57,7 +57,7 @@ AddEventHandler('rd:ScratchGunSerialNumber:load', function()
                             {
                                 name = 'ScratchGunSerialNumber',
                                 event = 'rd:ScratchGunSerialNumber:Scratch',
-                                icon = "rd.Settings.Target.Icon",
+                                icon = rd.Settings.Target.Icon,
                                 label = TranslateCap('Target_Label'),
                             },
                         }
