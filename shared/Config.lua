@@ -81,7 +81,7 @@ AddEventHandler('rd:scratchgunserialnumber:notify', function(title, message)
             type = 'inform'
         })
     elseif Config.Notification == 'CUSTOM' then
-        print('[WARNING] Set your own notification in shared/config.lua at line 35.') 
+        print('[WARNING] Set your own notification in shared/config.lua at line 84.') 
         -- Set your own notifications here.
     else
         print('[ERROR] Your notification type is not valid.')
