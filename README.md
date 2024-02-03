@@ -34,6 +34,6 @@
 
 ###
 
-<p align="center">https://discord.gg/4HyX4KUdmB</p>
+<p align="center">https://discord.respectdevelopment.eu</p>
 
 ###
