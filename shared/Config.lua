@@ -66,7 +66,7 @@ Config = {
 }
 
 -- If you need help with notifications, join the discord server and open a ticket.
--- Discord: https://discord.gg/SfjrAQzamD
+-- Discord: https://discord.respectdevelopment.eu
 RegisterNetEvent('rd:scratchgunserialnumber:notify')
 AddEventHandler('rd:scratchgunserialnumber:notify', function(title, message)
     if Config.Notification == 'ESX' then
